@@ -9,7 +9,9 @@ body {
     padding: 20px;
     border: 2px solid grey;
     border-radius: 20px;
+    flex-direction: column;
 }
+
 html,
 body {
     display: flex;
@@ -22,7 +24,14 @@ canvas {
     border: 2px solid grey;
     cursor: crosshair;
 }
-
+.container {
+    width: 100%;
+    margin: 10px;
+    border-top: 1px solid white;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
 #canvas-container {
     width: fit-content;
     padding: 20px;
@@ -36,16 +45,28 @@ canvas {
 #menu {
     width: fit-content;
     height: 100%;
-    padding: 20px;
+    padding: 40px;
 }
 .menu-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px 40px 20px 40px;
 }
 
+.prompt-text {
+    font-size: 2rem;
+    font-family: "Courier New", Courier, monospace;
+    color: white;
+    text-align: center;
+}
+
+.normal-text {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.5rem;
+    color: white;
+}
 button {
-    margin: 20px;
     cursor: pointer;
     background-color: black;
     padding: 10px;
@@ -59,4 +80,24 @@ button {
 button:hover {
     background-color: rgb(79, 79, 79);
     color: white;
+}
+
+#ai-guess {
+    max-width: 100%;
+    min-height: 40px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.svgIcon {
+    width: 40px;
+    height: 40px;
+    color: white;
+    /* background-color: white; */
 }
