@@ -23,6 +23,9 @@ const PORT = process.env.PORT || 3000;
 const generative_ai_1 = require("@google/generative-ai");
 const genAI = new generative_ai_1.GoogleGenerativeAI(process.env.API_KEY || "");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+app.get("/", (req, res) => {
+    res.json({ message: "Hello" });
+});
 app.post("/imageToText", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const body = req.body;

@@ -1,4 +1,4 @@
-const URL = "http://localhost:3002";
+const URL = "https://guess-what-ixoj.onrender.com";
 const canvas = document.getElementById("canvas");
 const colorInput = document.getElementById("color-input");
 const colorDisplay = document.getElementById("stroke-color");
