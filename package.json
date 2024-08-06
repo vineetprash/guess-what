@@ -1,5 +1,10 @@
 {
-  "dependencies": {
-    "@google/generative-ai": "^0.16.0"
-  }
+    "dependencies": {
+        "@google/generative-ai": "^0.16.0",
+        "serve": "^14.2.3"
+    },
+    "scripts": {
+        "client": "npm i && serve .",
+        "backend": "cd backend && npm i && npx nodemon index.js"
+    }
 }
