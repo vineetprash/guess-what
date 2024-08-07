@@ -23,11 +23,23 @@ const PORT = process.env.PORT || 3000;
 const generative_ai_1 = require("@google/generative-ai");
 const genAI = new generative_ai_1.GoogleGenerativeAI(process.env.API_KEY || "");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+let count = 0;
+setInterval(() => {
+    count = 0;
+}, 60 * 1000);
 app.get("/", (req, res) => {
     res.json({ message: "Hello" });
 });
 app.post("/imageToText", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
+    count += 1;
+    if (count > 20) {
+        res.status(400).json({
+            success: true,
+            message: "Facing high traffic currently...",
+        });
+        return;
+    }
     const body = req.body;
     const schema = zod_1.default.object({
         blob: zod_1.default.any(),

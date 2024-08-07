@@ -109,6 +109,7 @@ function saveImage() {
 
 async function guessWhatsThat() {
     const canvasDataURL = canvas.toDataURL();
+    guessDiv.innerHTML = "thinking...";
     const res = await fetch(`${URL}/imageToText`, {
         method: "POST",
         headers: {
