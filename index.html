@@ -5,14 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>GuessWhat</title>
         <link href="style.css" rel="stylesheet" />
+        <link href="output.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="ai-guess" class="prompt-text">
+        <div id="ai-guess" class="prompt-text text-sm md:text-lg">
             Draw something, i'll guess what it is :)
         </div>
-        <div class="container">
-            <div id="menu">
-                <div class="menu-item" title="Choose color">
+        <div class="container flex-col md:flex-row">
+            <div id="menu" class="w-44 h-full p-4">
+                <div class="menu-item hidden md:flex" title="Choose color">
                     <input
                         id="color-input"
                         type="color"
@@ -22,7 +23,7 @@
                     />
                 </div>
                 <div
-                    class="menu-item"
+                    class="menu-item hidden md:flex"
                     id="width-input-div"
                     title="Thickness: 1"
                 >
@@ -36,28 +37,47 @@
                         value="1"
                     />
                 </div>
-                <div class="menu-item">
-                    <button id="clear-button" title="Clear fullscreen">
+                <div class="menu-item hidden md:flex">
+                    <button
+                        id="clear-button"
+                        title="Clear fullscreen"
+                        class="p-4 border rounded w-fit h-12"
+                    >
                         <svg
+                            fill="#ffffff"
+                            version="1.1"
+                            id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512"
+                            xml:space="preserve"
                             stroke="#ffffff"
                             class="svgIcon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="800px"
-                            height="800px"
-                            viewBox="0 0 24 24"
-                            fill="#ffffff"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M15.0722 3.9967L20.7508 9.83395L17.0544 13.5304L13.0758 17.5H21.0041V19H7.93503L4.00195 15.0669L15.0722 3.9967ZM10.952 17.5L15.4628 12.9994L11.8268 9.3634L6.12327 15.0669L8.55635 17.5H10.952Z"
-                                fill="#ffffff"
-                            />
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            ></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M345.397,81.27V0H166.603v81.27H28.444v48.762h48.762V512h357.587V130.032h48.762V81.27H345.397z M215.365,446.984 h-48.762V154.413h48.762V446.984z M215.365,48.762h81.27V81.27h-81.27V48.762z M345.397,446.984h-48.762V154.413h48.762V446.984z"
+                                        ></path>
+                                    </g>
+                                </g>
+                            </g>
                         </svg>
                     </button>
                 </div>
-                <div class="menu-item">
-                    <button id="fill-button" title="Fill fullscreen">
+                <div class="menu-item hidden md:flex">
+                    <button
+                        id="fill-button"
+                        title="Fill fullscreen"
+                        class="p-4 border rounded w-fit h-12"
+                    >
                         <svg
                             stroke="#ffffff"
                             class="svgIcon"
@@ -65,8 +85,6 @@
                             xmlns:xlink="http://www.w3.org/1999/xlink"
                             xmlns:serif="http://www.serif.com/"
                             fill="#ffffff"
-                            width="800px"
-                            height="800px"
                             viewBox="0 0 32 32"
                             version="1.1"
                             xml:space="preserve"
@@ -89,14 +107,16 @@
                         </svg>
                     </button>
                 </div>
-                <div class="menu-item">
-                    <button id="save-button" title="Download">
+                <div class="menu-item hidden md:flex">
+                    <button
+                        id="save-button"
+                        title="Download"
+                        class="p-4 border rounded w-fit h-12"
+                    >
                         <svg
                             stroke="#ffffff"
                             class="svgIcon"
                             xmlns="http://www.w3.org/2000/svg"
-                            width="800px"
-                            height="800px"
                             viewBox="0 0 24 24"
                             fill="#ffffff"
                         >
@@ -112,8 +132,24 @@
                     </button>
                 </div>
             </div>
-            <div id="canvas-container">
-                <canvas id="canvas" height="600px" width="900px"></canvas>
+            <div class="w-fit p-4 flex-col justify-center items-center">
+                <!-- desktop -->
+                <canvas
+                    class="hidden md:flex md:desktop"
+                    id="canvas-desktop"
+                    height="400px"
+                    width="600px"
+                ></canvas>
+                <!-- mobile -->
+                <canvas
+                    class="flex md:hidden mobile"
+                    id="canvas-mobile"
+                    height="400px"
+                    width="300px"
+                ></canvas>
+                <!-- <div class="sm:hidden text-center font normal-text text-sm">
+                    Works better in Desktop/PC
+                </div> -->
             </div>
         </div>
         <script type="module" src="index.js"></script>
